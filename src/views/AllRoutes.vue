@@ -1,38 +1,16 @@
 <template>
-  <div>
-<h3> All Route  </h3>
+
 
 <!-- Task 1 -->
     <div class="container">
-          <table>
-          <tr>
-            <th>From</th>
-            <th>To</th>
-            <th>Cost</th>
-            <th>Time</th>
-            <th>Date</th>
-          </tr>
-          <tr class="item" v-for="route in routes" :key="route.id">
-            <td>{{ route.fromcity }} </td>
-            <td>{{ route.tocity}} </td>
-            <!-- <td> {{ route.cost}}</td> -->
-
-            <td class='red' v-if="route.cost > 12"> {{ route.cost}}</td>
-            <td class='blue' v-else>{{ route.cost}}</td>
-
-            <td>{{ route.departuretime }} </td>
-            <td>{{ route.departuredate }} </td> 
-          </tr>
-          </table>
-    </div>
-    <div class ='counters'  >
-            <p> We have  {{ routes.length }} trips today! </p>
-    </div>
+      <rout-component v-for="rout in this.routes" :id="rout.id" :from="rout.fromcity" :to="rout.tocity" :cost="rout.cost" :time="rout.departuretime" :date="rout.departuredate"></rout-component>
   </div>
 </template>
 
 
 <script>
+import Rout from './Rout.vue';
+
 export default {
   name: "AllRoutes",
   data() {
@@ -53,47 +31,23 @@ export default {
   mounted() {
     this.fetchRouts();
     console.log("mounted");
+  },
+  components:{
+    "rout-component":Rout
   } 
 };
 </script>
 
 <style scoped>
+.container{
+  display: flex;
+  flex-direction: column;
+  padding-left: 20%;
+  padding-right: 20%;
+  
+}
 h1 {
   font-size: 20px;
 }
-th {
-  background: rgb(100, 151, 122);
-}
-td {
-  background: rgb(186, 228, 204);
-}
-th, td {
-  font-size: 15px;
-  margin-bottom: 5px;
-  padding: 8px 10px;
-}
-.red{
-   background: rgb(225, 33, 19); 
-}
-.blue{
-   background: rgb(19, 67, 163); 
-}
-.counters{
-    background: rgb(157, 160, 165); 
-    padding: 10px 20px;
-    display: block;
-    width: 40%;
-    margin: auto;
-    font-size: 18px;
-}
-.container {
-  background: #d5d7d8;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
-  margin-bottom: 30px;
-  padding: 10px 20px;
-  margin: auto;
-  width: 40%;
-  display: flex;
-  justify-content: center;
-}
+
 </style>

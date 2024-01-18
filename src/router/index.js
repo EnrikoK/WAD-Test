@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import RouteManagement from "../views/RouteManagement.vue";
 import AllRouts from "../views/AllRoutes.vue";
+import routDetail from "../views/routDetail.vue"
 
 
 const routes = [{
@@ -16,6 +17,9 @@ const routes = [{
         path: "/:catchAll(.*)",
         name: "AllRouts",
         component: AllRouts,
+    },
+    {
+        path:"/:id", name:"routDetail", component: routDetail
     }
 ]
 

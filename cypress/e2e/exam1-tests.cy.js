@@ -7,7 +7,7 @@ it('Test 1', () => {
     cy.get('#dateAdd').should('have.attr', 'placeholder')
 })
 
-/* it('Test 2', () => {
+it('Test 2', () => {
     cy.visit('http://localhost:8080/routemanagement')
     //to be add by you
     cy.get('#fromcityAdd').type('Rome')
@@ -16,10 +16,10 @@ it('Test 1', () => {
     cy.get('#timeAdd').type('06:00:00')
     cy.get('#dateAdd').type('2022-03-24')
     cy.get('.add').click()
-}) */
+}) 
 
 /* API */
-/* it("Test 3 - API - Add route request", function() {
+it("Test 3 - API - Add route request", function() {
     cy.request('POST', 'http://localhost:3000/api/routes', {
         //to be add by you
             "fromcity": "Parnu",
@@ -34,4 +34,4 @@ it('Test 1', () => {
             expect(post).to.not.be.null;
             cy.log('a route is added')
         });
-}) */
+}) 

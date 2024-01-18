@@ -36,7 +36,7 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 button{
-/*   margin-top: 30px;*/  
+  margin-top: 30px;  
   border-radius: 36px;
   background: #FEE996;
   border:0;

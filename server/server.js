@@ -28,8 +28,9 @@ app.get('/api/routes/:id', async(req, res) => {
     try {
         console.log("get a post with route parameter request has arrived");
         const { id } = req.params;
+        console.log(id)
         const posts = await pool.query(
-            "SELECT * FROM routes WHERE fromcity = $1", [id]
+            "SELECT * FROM routes WHERE id = $1", [id]
         );
         res.json(posts.rows);
     } catch (err) {
